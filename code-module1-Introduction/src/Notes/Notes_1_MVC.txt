@@ -5,6 +5,7 @@
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/Controller/HomeController
 
+code:
 package com.urgekol.code_module1_Introduction.Controller;
 
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,7 @@ public class HomeController
     </dependency>
 */
 
+
 Directory source:
 /src/main/java/resources/templates/index.html
+

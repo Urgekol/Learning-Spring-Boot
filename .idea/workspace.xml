@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928f6af0-b064-4c60-aa23-7b6940a130b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pictorial Notes/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="928f6af0-b064-4c60-aa23-7b6940a130b5" name="Changes" comment="Note-2">
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_2_Component_Beans.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Notes_1_MVC.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/CodeModule1IntroductionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/CodeModule1IntroductionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/resources/templates/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +62,12 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code_with_me\Spring Boot\1_Spring_Boot_Learning\code-module1-Introduction\src\Notes" />
+      <recent name="E:\code_with_me\Spring Boot\1_Spring_Boot_Learning" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="urgekol.code_module1_Introduction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="code-module1-Introduction" />
@@ -91,9 +93,22 @@
       <option name="presentableId" value="Default" />
       <updated>1781675011187</updated>
     </task>
+    <task id="LOCAL-00001" summary="Note-2">
+      <option name="closed" value="true" />
+      <created>1781675959153</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781675959153</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Note-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Note-2" />
   </component>
 </project>

@@ -1,0 +1,80 @@
+
+
+~~ Note-2: Introduction to Component and Beans and IoC container
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
+
+code:
+package com.urgekol.code_module1_Introduction;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CodeModule1IntroductionApplication implements CommandLineRunner
+{
+	@Autowired
+	Payment paymentObj;		// Spring creates: Payment paymentObj = new Payment();
+
+
+	public static void main(String[] args)
+	{
+		SpringApplication.run(CodeModule1IntroductionApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args)
+	{
+		paymentObj.paying();
+	}
+}
+
+/*
+	Why Not Call It Inside main()?
+	a. main() is static.
+	b. Dependency injection happens on objects.
+	c. paymentObj isn't available in the static context.
+*/
+
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/Payment
+
+code:
+package com.urgekol.code_module1_Introduction;
+
+import org.springframework.stereotype.Component;
+
+@Component          // Helps to create a bean - object created automatically by Spring
+public class Payment
+{
+    void paying()
+    {
+        System.out.println("Paying");
+    }
+}
+
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/AppConfig
+
+code:
+package com.urgekol.code_module1_Introduction;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+// This class will track the no. of beans
+
+@Configuration
+public class AppConfig
+{
+    @Bean
+    Payment paymentObj()
+    {
+        return new Payment();
+    }
+}
