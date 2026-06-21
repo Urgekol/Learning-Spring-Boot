@@ -1,6 +1,7 @@
 package com.urgekol.code_module1_Introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CodeModule1IntroductionApplication implements CommandLineRunner
 {
 	@Autowired
-	Payment paymentObj;		// Spring creates: Payment paymentObj = new Payment();
+	@Qualifier("email")
+	NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
 
 
 	public static void main(String[] args)
@@ -20,13 +22,7 @@ public class CodeModule1IntroductionApplication implements CommandLineRunner
 	@Override
 	public void run(String... args)
 	{
-		paymentObj.paying();
+		notificationService.send("Hello World");
+
 	}
 }
-
-/*
-	Why Not Call It Inside main()?
-	a. main() is static.
-	b. Dependency injection happens on objects.
-	c. paymentObj isn't available in the static context.
-*/

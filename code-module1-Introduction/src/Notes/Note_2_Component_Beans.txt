@@ -67,7 +67,7 @@ package com.urgekol.code_module1_Introduction;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// This class will track the no. of beans
+// This class will track the no. of beans manually created here!!
 
 @Configuration
 public class AppConfig

@@ -1,0 +1,91 @@
+
+
+~~ Note-5: Use of @Qualifier("...") and @Component("...")
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
+
+code:
+package com.urgekol.code_module1_Introduction;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CodeModule1IntroductionApplication implements CommandLineRunner
+{
+	@Autowired
+	@Qualifier("email")
+	NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
+
+
+	public static void main(String[] args)
+	{
+		SpringApplication.run(CodeModule1IntroductionApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args)
+	{
+		notificationService.send("Hello World");
+	}
+}
+
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/Implement
+
+/Email_Notification_Service
+
+code:
+package com.urgekol.code_module1_Introduction.Implement;
+
+import com.urgekol.code_module1_Introduction.NotificationService;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component("email")
+public class Email_Notification_Service implements NotificationService
+{
+    @Override
+    public void send(String message)
+    {
+        System.out.println("Email sending...." + message);
+    }
+}
+
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/Implement
+
+/SMS_Notification_Service
+
+code:
+package com.urgekol.code_module1_Introduction.Implement;
+
+import com.urgekol.code_module1_Introduction.NotificationService;
+import org.springframework.stereotype.Component;
+
+@Component("sms")
+public class SMS_Notification_Service implements NotificationService
+{
+    @Override
+    public void send(String message)
+    {
+        System.out.println("SMS sending...." + message);
+    }
+}
+
+
+Directory source:
+/src/main/java/com.urgekol.code_module1_Introduction/NotificationService  --> Interface
+
+code:
+package com.urgekol.code_module1_Introduction;
+
+public interface NotificationService
+{
+    public void send(String message);
+}
