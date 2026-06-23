@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928f6af0-b064-4c60-aa23-7b6940a130b5" name="Changes" comment="Note-2">
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_3_Remove_Tight_Coupling" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_4__Use_of_Primary" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_5_Component_Scope" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/Email_Notification_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/SMS_Notification_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+    <list default="true" id="928f6af0-b064-4c60-aa23-7b6940a130b5" name="Changes" comment="Note-5">
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_3.0_Remove_Tight_Coupling" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_3.5_DI_definition" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_6.5_Qualifier_in_Constructor_DI" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_7.0_Conditional_Property" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_7.5_Conditional_Property" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_8_get_beans_instances_HashMap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_1_MVC.txt" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_1_MVC.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_2_Component_Beans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_2_Component_Beans.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_3_Remove_Tight_Coupling" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_6.0_Constructor_DI" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_4_Use_of_Primary" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_4_Use_of_Primary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_5_Component_Scope" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/Notes/Note_5_Component_Scope" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/CodeModule1IntroductionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/CodeModule1IntroductionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/Email_Notification_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/Email_Notification_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/SMS_Notification_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/java/com/urgekol/code_module1_Introduction/Implement/SMS_Notification_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-module1-Introduction/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/code-module1-Introduction/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781676730416</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Note-5">
+      <option name="closed" value="true" />
+      <created>1782024027846</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1782024027846</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +166,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Note-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Note-2" />
+    <MESSAGE value="Note-5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Note-5" />
   </component>
 </project>

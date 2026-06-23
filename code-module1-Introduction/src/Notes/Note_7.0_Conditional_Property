@@ -1,6 +1,6 @@
 
 
-~~ Note-5: Use of @Qualifier("...") and @Component("...")
+~~ Note-7: Using application.properties to create desired Bean
 
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
@@ -17,7 +17,6 @@ code:
     public class CodeModule1IntroductionApplication implements CommandLineRunner
     {
         @Autowired
-        @Qualifier("email")
         NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
         // Dependency Injection
 
@@ -43,10 +42,15 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.context.annotation.Primary;
     import org.springframework.stereotype.Component;
 
-    @Component("email")
+    @Component
+    @ConditionalOnProperty(
+            name = "notification.type",
+            havingValue = "email"
+    )
     public class Email_Notification_Service implements NotificationService
     {
         @Override
@@ -66,9 +70,14 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.stereotype.Component;
 
-    @Component("sms")
+    @Component
+    @ConditionalOnProperty(
+            name = "notification.type",
+            havingValue = "sms"
+    )
     public class SMS_Notification_Service implements NotificationService
     {
         @Override
@@ -89,3 +98,38 @@ code:
     {
         public void send(String message);
     }
+
+
+/src/main/resources/application.properties
+
+code:
+
+    spring.application.name=code-module1-Introduction
+    server.port = 5000
+    # the default port will be "8080" if we don't mention the "server.port"
+
+    notification.type=email
+
+
+    /*
+        Using the "notification.type=email"
+
+        the @Autowired
+            NotificationService notificationService;     ~ will automatically find the required Bean
+    */
+
+    /*
+        if I write:
+
+        /src/main/resources/application.properties
+
+        code:
+
+        spring.application.name=code-module1-Introduction
+        server.port = 5000
+        # the default port will be "8080" if we don't mention the "server.port"
+
+        notification.type=email
+
+        debug=true          --> this will help to see all the logs in the terminal to check the debugs
+    */

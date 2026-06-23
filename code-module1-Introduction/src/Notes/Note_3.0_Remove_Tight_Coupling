@@ -1,6 +1,6 @@
 
 
-~~ Note-5: Use of @Qualifier("...") and @Component("...")
+~~ Note-3: Removal of Tight Coupling using Dependency Injection
 
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
@@ -17,7 +17,6 @@ code:
     public class CodeModule1IntroductionApplication implements CommandLineRunner
     {
         @Autowired
-        @Qualifier("email")
         NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
         // Dependency Injection
 
@@ -43,10 +42,9 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
-    import org.springframework.context.annotation.Primary;
     import org.springframework.stereotype.Component;
 
-    @Component("email")
+    @Component
     public class Email_Notification_Service implements NotificationService
     {
         @Override
@@ -68,7 +66,7 @@ code:
     import com.urgekol.code_module1_Introduction.NotificationService;
     import org.springframework.stereotype.Component;
 
-    @Component("sms")
+    // @Component
     public class SMS_Notification_Service implements NotificationService
     {
         @Override
@@ -89,3 +87,8 @@ code:
     {
         public void send(String message);
     }
+
+
+    /*
+        There can be only one @Component to get @Autowire in the main class
+    */

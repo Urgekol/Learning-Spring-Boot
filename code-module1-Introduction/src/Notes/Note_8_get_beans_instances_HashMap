@@ -1,6 +1,6 @@
 
 
-~~ Note-4: Use of @Primary and multiple @Component
+~~ Note-7: Using HashMap to get the Bean instances
 
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
@@ -13,24 +13,42 @@ code:
     import org.springframework.boot.SpringApplication;
     import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+    import java.util.HashMap;
+    import java.util.Map;
+
     @SpringBootApplication
     public class CodeModule1IntroductionApplication implements CommandLineRunner
     {
-        @Autowired
-        NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
-        // Dependency Injection
+    	@Autowired
+        Map<String, NotificationService> notificationServices = new HashMap<>();
 
-        public static void main(String[] args)
-        {
-            SpringApplication.run(CodeModule1IntroductionApplication.class, args);
-        }
+    	public static void main(String[] args)
+    	{
+    		SpringApplication.run(CodeModule1IntroductionApplication.class, args);
+    	}
 
-        @Override
-        public void run(String... args)
-        {
-            notificationService.send("Hello World");
-        }
+    	@Override
+    	public void run(String... args)
+    	{
+    		notificationServices.forEach(
+    				(key, value) ->
+    				{
+    					System.out.print(key + "-->");
+    					System.out.println(value.getClass().getSimpleName());
+    				}
+    		);
+    	}
     }
+
+    /*
+    	Why not HashMap used instead of Map?
+
+    	~ We use "Map" instead of "HashMap" because it promotes loose coupling,
+    	  follows the "Dependency Inversion Principle", provides flexibility
+    	  to change implementations, and aligns with Spring's dependency
+    	  injection philosophy of programming to interfaces rather than
+    	  implementations.
+    */
 
 
 Directory source:
@@ -42,17 +60,20 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
-    import org.springframework.context.annotation.Primary;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.stereotype.Component;
 
     @Primary
     @Component
-    public class Email_Notification_Service implements NotificationService
+    public class Email_Notification_Service
+            implements NotificationService
     {
         @Override
         public void send(String message)
         {
-            System.out.println("Email sending...." + message);
+            System.out.println(
+                    "Email sending.... " + message
+            );
         }
     }
 
@@ -66,15 +87,19 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.stereotype.Component;
 
     @Component
-    public class SMS_Notification_Service implements NotificationService
+    public class SMS_Notification_Service
+            implements NotificationService
     {
         @Override
         public void send(String message)
         {
-            System.out.println("SMS sending...." + message);
+            System.out.println(
+                    "SMS sending.... " + message
+            );
         }
     }
 
@@ -89,3 +114,11 @@ code:
     {
         public void send(String message);
     }
+
+
+/src/main/resources/application.properties
+
+code:
+    spring.application.name=code-module1-Introduction
+    server.port = 5000
+

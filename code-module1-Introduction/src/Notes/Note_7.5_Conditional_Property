@@ -1,6 +1,6 @@
 
 
-~~ Note-5: Use of @Qualifier("...") and @Component("...")
+~~ Note-7: Using application.properties to create desired Bean
 
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
@@ -17,7 +17,6 @@ code:
     public class CodeModule1IntroductionApplication implements CommandLineRunner
     {
         @Autowired
-        @Qualifier("email")
         NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
         // Dependency Injection
 
@@ -43,16 +42,23 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
-    import org.springframework.context.annotation.Primary;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.stereotype.Component;
 
-    @Component("email")
-    public class Email_Notification_Service implements NotificationService
+    @Component
+    @ConditionalOnProperty(
+            name = "feature.enabled",
+            havingValue = "true"
+    )
+    public class Email_Notification_Service
+            implements NotificationService
     {
         @Override
         public void send(String message)
         {
-            System.out.println("Email sending...." + message);
+            System.out.println(
+                    "Email sending.... " + message
+            );
         }
     }
 
@@ -66,15 +72,23 @@ code:
     package com.urgekol.code_module1_Introduction.Implement;
 
     import com.urgekol.code_module1_Introduction.NotificationService;
+    import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
     import org.springframework.stereotype.Component;
 
-    @Component("sms")
-    public class SMS_Notification_Service implements NotificationService
+    @Component
+    @ConditionalOnProperty(
+            name = "feature.enabled",
+            havingValue = "false"
+    )
+    public class SMS_Notification_Service
+            implements NotificationService
     {
         @Override
         public void send(String message)
         {
-            System.out.println("SMS sending...." + message);
+            System.out.println(
+                    "SMS sending.... " + message
+            );
         }
     }
 
@@ -89,3 +103,14 @@ code:
     {
         public void send(String message);
     }
+
+
+/src/main/resources/application.properties
+
+code:
+    spring.application.name=code-module1-Introduction
+    server.port = 5000
+    # the default port will be "8080" if we don't mention the "server.port"
+
+    feature.enabled=false           ~ if "true", enable Email_Notification_Service
+                                    ~ if "false", enable SMS_Notification_Service

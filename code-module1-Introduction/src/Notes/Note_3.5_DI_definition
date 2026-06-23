@@ -1,0 +1,70 @@
+
+
+~~ Note-3: Removal of Tight Coupling using Dependency Injection
+
+
+Dependency Injection is a design pattern where an object receives its dependencies from
+the outside,
+            instead of creating them itself.
+
+|| BAD: Tight Coupling
+
+code:
+    @SpringBootApplication
+    public class CodeModule1IntroductionApplication implements CommandLineRunner
+    {
+        private Email_Notification_Service notificationService = new Email_Notification_Service();
+
+        @Override
+        public void run(String... args)
+        {
+            notificationService.send("Hello World");
+        }
+    }
+
+Problems ~
+      i. OrderService is directly dependent on Email_Notification_Service.
+     ii. Cannot easily switch to SMS_Notification_Service.
+    iii. Violates Dependency Inversion Principle (DIP).
+     iv. Difficult to test and mock.
+      v. Object creation is the responsibility of OrderService.
+
+
+|| GOOD: Dependency Injection + Loose Coupling
+
+code:
+    @SpringBootApplication
+    public class CodeModule1IntroductionApplication implements CommandLineRunner
+    {
+        @Autowired
+        private NotificationService notificationService;
+
+        @Override
+        public void run(String... args)
+        {
+            notificationService.send("Hello World");
+        }
+    }
+
+|| The application depends on the interface, not on a specific implementation.
+
+|| Spring decides whether to inject:
+
+    > Email_Notification_Service
+
+    or
+
+    > SMS_Notification_Service
+
+   (based on your configuration)
+
+
+|| My Project's Dependency chain is:
+
+   CodeModule1IntroductionApplication
+                    ↓
+           NotificationService
+                    ↓
+        Email_Notification_Service
+                    OR
+         SMS_Notification_Service

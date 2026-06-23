@@ -1,6 +1,6 @@
 
 
-~~ Note-5: Use of @Qualifier("...") and @Component("...")
+~~ Note-6: Using constructor in the main class to create DI
 
 Directory source:
 /src/main/java/com.urgekol.code_module1_Introduction/CodeModule1IntroductionApplication
@@ -8,7 +8,7 @@ Directory source:
 code:
     package com.urgekol.code_module1_Introduction;
 
-    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.beans.factory.annotation.Qualifier;
     import org.springframework.boot.CommandLineRunner;
     import org.springframework.boot.SpringApplication;
     import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,10 +16,16 @@ code:
     @SpringBootApplication
     public class CodeModule1IntroductionApplication implements CommandLineRunner
     {
-        @Autowired
-        @Qualifier("email")
+
         NotificationService notificationService;		// Spring creates: NotificationService notificationService = new NotificationService();
         // Dependency Injection
+
+        public CodeModule1IntroductionApplication(
+                @Qualifier("email")
+                NotificationService notificationService)
+        {
+            this.notificationService=notificationService;		// constructor DI is more preferred
+        }
 
         public static void main(String[] args)
         {
